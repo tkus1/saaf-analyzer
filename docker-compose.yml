@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  fastapi:
+    build: ./backend
+    volumes:
+      - ./data:/app/data
+      - ./db:/app/db
+    ports:
+      - "8000:8000"
+
+  superset:
+    build:
+      context: ./superset
+      dockerfile: Dockerfile
+    environment:
+      - SUPERSET_LOAD_EXAMPLES=no
+      - SUPERSET_SECRET_KEY=your_secret_key
+      - SUPERSET_CONFIG_PATH=/app/superset_home/superset_config.py
+    volumes:
+      - ./db:/app/db
+      - ./superset_home:/app/superset_home
+    ports:
+      - "8088:8088"

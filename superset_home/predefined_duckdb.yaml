@@ -1,0 +1,5 @@
+databases:
+  - database_name: duckdb_local
+    sqlalchemy_uri: duckdb:////app/db/analysis_superset.duckdb
+    extra: "{}"
+    allow_csv_upload: true

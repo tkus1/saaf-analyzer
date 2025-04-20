@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.db
+*.zip
+*.log
+.env
+.superset/
+db/*.duckdb
